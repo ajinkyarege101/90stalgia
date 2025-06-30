@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 // You'll need to get a TMDB API key from https://www.themoviedb.org/settings/api
-const TMDB_API_KEY = 'b5075b8e85419f362607d8f4e4ba192e'
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+if (!TMDB_API_KEY) {
+  console.error("TMDB API key is missing! Make sure it's set on Vercel.");
+}
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3'
 const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 
