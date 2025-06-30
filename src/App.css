@@ -1,0 +1,257 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: white;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.header h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 0px #333;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 2px solid #333;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #feca57);
+  transition: width 0.3s ease;
+}
+
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+}
+
+.movie-selection {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.movie-card {
+  width: 300px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 3px solid #333;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.movie-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.movie-info p {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.rating {
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.vs-divider {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  border: 4px solid #333;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.results {
+  text-align: center;
+  color: #333;
+  max-width: 1200px;
+}
+
+.results h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 0px #333;
+}
+
+.results p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.favorite-movie {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 3px solid #333;
+}
+
+.favorite-poster {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.favorite-movie h3 {
+  padding: 15px 10px 5px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.favorite-movie p {
+  padding: 0 10px 15px;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.restart-btn {
+  background: #ff6b6b;
+  color: white;
+  border: 3px solid #333;
+  padding: 15px 30px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  background: #ff5252;
+}
+
+.loading, .error {
+  text-align: center;
+  color: #333;
+  margin-top: 100px;
+}
+
+.loading h1, .error h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 0px #333;
+}
+
+.error a {
+  color: #feca57;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .movie-selection {
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    gap: 60px;
+  }
+  
+  .vs-divider {
+    position: static;
+    transform: none;
+    margin: 10px 0;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
